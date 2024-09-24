@@ -1,0 +1,12 @@
+{
+    "header": {
+        "status": "error",
+        "code": -1,
+        "message": "validation error"
+    },
+    "error_messages": {
+        "qty": [
+            "จำนวนคงเหลือ "
+        ]
+    }
+}

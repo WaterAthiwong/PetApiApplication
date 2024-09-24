@@ -1,0 +1,60 @@
+package com.champaca.inventorydata.pile.model
+
+import java.math.BigDecimal
+import java.time.LocalDate
+import java.time.LocalDateTime
+
+data class PileEntry(
+    val id: Int,
+    var code: String,
+    val goodMovementId: Int,
+    val originGoodMovementId: Int?,
+    val originDepartmentId: Int?,
+    val currentDepartmentId: Int?,
+    val currentStoreLocation: String?,
+    val processTypePrefix: String,
+    val manufacturingLineId: Int?,
+    val productionDate: LocalDate,
+    val orderNo: String?,
+    val jobNo: String?,
+    var currentjobNo: String?,
+    val poNo: String?,
+    val invoiceNo: String?,
+    val lotNo: String?,
+    val remark: String?,
+    val manufacturingLinename: String?,
+    val suppliername: String?,
+    var sku: String?,
+    var type: String?,
+    var fsc: String?,
+    var creator: String?,
+    var printedAt: LocalDateTime?,
+    var details: List<MovingItem>?,
+    var lots: List<LotDetailInPile>?,
+    val canEdit: Boolean,
+    val canRemove: Boolean,
+    val canUndo: Boolean,
+    var preferredMeasurement: String?,
+    var createdAt: String?,
+    var matCode: String?,
+    var grade: String?,
+    var customer: String?,
+    var countryOfOrigin : String? = null,
+)
+
+data class LotDetailInPile(
+    val size: String?,
+    val width: BigDecimal,
+    val widthUom: String,
+    val length: BigDecimal,
+    val lengthUom: String,
+    val thickness: BigDecimal,
+    val thicknessUom: String,
+    val volumeFt3: BigDecimal,
+    val volumeM3: BigDecimal,
+    val areaM2: BigDecimal?,
+    val grade: String,
+    val qty: BigDecimal,
+    val fsc: String?,
+    val group: String?,
+)

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="champaca" pageWidth="420" pageHeight="595" columnWidth="380" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="39e269a4-abd3-459e-ad84-efdb765ff34c">
+	<property name="net.sf.jasperreports.default.pdf.encoding" value="UTF-8"/>
+	<property name="net.sf.jasperreports.components.table.generate.pdf.tags" value="true"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BCBCBC">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="detailListSet" uuid="fa5bbf82-3168-45f4-82c4-b3177b045c8d">
+		<field name="unitType" class="java.lang.String"/>
+		<field name="size" class="java.lang.String"/>
+		<field name="width" class="java.math.BigDecimal"/>
+		<field name="widthUom" class="java.lang.String"/>
+		<field name="length" class="java.math.BigDecimal"/>
+		<field name="lengthUom" class="java.lang.String"/>
+		<field name="thickness" class="java.math.BigDecimal"/>
+		<field name="thicknessUom" class="java.lang.String"/>
+		<field name="volumeFt3" class="java.math.BigDecimal"/>
+		<field name="volumeM3" class="java.math.BigDecimal"/>
+		<field name="areaM2" class="java.math.BigDecimal"/>
+		<field name="grade" class="java.lang.String"/>
+		<field name="qty" class="java.math.BigDecimal"/>
+		<field name="fsc" class="java.lang.String"/>
+		<field name="group" class="java.lang.String"/>
+	</subDataset>
+	<queryString language="json">
+		<![CDATA[dataSource]]>
+	</queryString>
+	<field name="pile" class="java.lang.String"/>
+	<field name="QrPath" class="java.lang.String"/>
+	<field name="QrName" class="java.lang.String"/>
+	<field name="date" class="java.lang.String"/>
+	<field name="departmentid" class="java.lang.String"/>
+	<field name="supplier" class="java.lang.String"/>
+	<field name="lineid" class="java.lang.String"/>
+	<field name="po" class="java.lang.String"/>
+	<field name="job" class="java.lang.String"/>
+	<field name="lot" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="sku" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="fsc" class="java.lang.String"/>
+	<field name="invoice" class="java.lang.String"/>
+	<field name="order" class="java.lang.String"/>
+	<field name="mattype" class="java.lang.String"/>
+	<field name="creator" class="java.lang.String"/>
+	<field name="grade" class="java.lang.String"/>
+	<field name="matCode" class="java.lang.String"/>
+	<field name="createdAt" class="java.lang.String"/>
+	<field name="customer" class="java.lang.String"/>
+	<field name="detail" class="java.util.List"/>
+	<variable name="currentPageNumber" class="java.lang.Integer">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}]]></variableExpression>
+	</variable>
+	<variable name="totalPages" class="java.lang.Integer" calculation="Highest">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="215" splitType="Stretch">
+			<textField>
+				<reportElement x="180" y="0" width="130" height="95" uuid="b306fd06-a15c-4e32-bd9b-9c81c6176d95"/>
+				<textElement textAlignment="Center">
+					<font size="28"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fsc} == "null" ? " " : $F{fsc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="20" width="130" height="95" uuid="b306fd06-a15c-4e32-bd9b-9c81c6176d95"/>
+				<textElement textAlignment="Center">
+					<font size="28"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sku} == "null" ? " " : $F{sku}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="20" y="55" width="50" height="45" uuid="224a7348-ba1c-4fa0-92c8-5e985a7fdfa4"/>
+				<imageExpression><![CDATA["classpath:reports/images/C-GRAY.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="250" y="55" width="145" height="145" uuid="224a7348-ba1c-4fa0-92c8-5e985a7fdfa4"/>
+				<imageExpression><![CDATA[$F{QrPath}+ $F{QrName}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="80" y="45" width="200" height="95" uuid="111aefd8-604e-442d-93f6-1d82afa7402f"/>
+				<textElement>
+					<font size="38" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHAMPACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="75" width="80" height="40" uuid="f1d14ae8-2339-4fac-86a5-1b42dc08806a"/>
+				<textElement>
+					<font size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ใบ Shelf]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="75" width="120" height="40" uuid="0edf7210-c67e-488f-b84f-ffebe65b1c0e"/>
+				<textElement>
+					<font size="27"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pile}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="113" width="120" height="35" uuid="ba1fcad4-ef73-434c-adba-4ed299cab024"/>
+				<textElement textAlignment="Right">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[วันที่ตั้งกอง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="25" y="129" width="120" height="30" uuid="0af31e08-17a5-40fa-8bbb-223c38e6316b"/>
+				<textElement textAlignment="Right">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ลูกค้า]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="148" width="120" height="30" uuid="f8ca98be-649c-46c1-beb7-b86da776fecf"/>
+				<textElement textAlignment="Right">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[กลุ่มไม้]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="164" width="120" height="30" uuid="2d6b4cea-64b6-4f93-a2a8-bc6ae8163cba"/>
+				<textElement textAlignment="Right">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[เกรด]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="180" width="120" height="30" uuid="92060001-5864-489d-9fbe-6f229a9b07fe"/>
+				<textElement textAlignment="Right">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ค่าความชื้น]]></text>
+			</staticText>
+<!--			<staticText>-->
+<!--				<reportElement x="30" y="196" width="120" height="30" uuid="92060001-5864-489d-9fbe-6f229a9b07fe"/>-->
+<!--				<textElement textAlignment="Right">-->
+<!--					<font size="18" isBold="true"/>-->
+<!--				</textElement>-->
+<!--				<text><![CDATA[ลูกค้า]]></text>-->
+<!--			</staticText>-->
+			<textField>
+				<reportElement x="160" y="112" width="130" height="33" uuid="a435cd95-4a9b-48f1-ad0e-f6441223ba98"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{createdAt}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="129" width="130" height="33" uuid="b306fd06-a15c-4e32-bd9b-9c81c6176d95"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{supplier} == "null" ? " " : $F{supplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="149" width="130" height="33" uuid="2430cc39-7019-4cd0-87b1-2718ba4cb421"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type} == "null" ? " " : $F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="164" width="130" height="33" uuid="2290e959-0acc-4517-aaa1-0c9f06293118"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grade} == "null" ? " " : $F{grade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="181" width="130" height="33" uuid="36860eca-fe83-40b7-a284-b2013e4f8e75"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{job} == "null" ? " " : " "]]></textFieldExpression>
+			</textField>
+<!--			<textField>-->
+<!--				<reportElement x="160" y="197" width="130" height="33" uuid="36860eca-fe83-40b7-a284-b2013e4f8e75"/>-->
+<!--				<textElement>-->
+<!--					<font size="18" isBold="true"/>-->
+<!--				</textElement>-->
+<!--				<textFieldExpression><![CDATA[$F{customer} == "null" ? " " : $F{customer}]]></textFieldExpression>-->
+<!--			</textField>-->
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="200" splitType="Stretch">
+			<componentElement>
+				<reportElement x="1" y="10" width="379" height="150" uuid="c720c25a-8c2f-43de-9793-1671c116b3e7">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="detailListSet" uuid="f5a103b2-b94e-40e0-bf3d-30be54c5c0eb">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detail})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="50" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["วันรับเข้า"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : ""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["วันเบิกออก"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : ""]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["CER"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : ($F{fsc})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="30" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["เกรด"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="30" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : ($F{grade})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["Group"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : ($F{group})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["หนา"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : new DecimalFormat("0.00").format($F{thickness})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["กว้าง"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("TOTAL")||$F{grade}.equals("BLANK") ? "" : new DecimalFormat("0.00").format($F{width})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="40" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["ยาว"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="40" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("BLANK") ? "" : ($F{grade}.equals("TOTAL")? "รวม": new DecimalFormat("0.00").format($F{length}))]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="2ee1226e-fe19-426c-9c4b-ad09024db1c0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_TH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="14" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA["จำนวน"]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="24">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="24" uuid="f692cd66-feb8-445a-b8f4-8607fad1bb62"/>
+								<textElement textAlignment="Center">
+									<font size="15" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grade}.equals("BLANK")? "" : ($F{qty})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="90" splitType="Stretch">
+			<image>
+				<reportElement x="270" y="0" width="90" height="90" uuid="224a7348-ba1c-4fa0-92c8-5e985a7fdfa4"/>
+				<imageExpression><![CDATA[$F{QrPath}+ $F{QrName}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="25" y="23" width="333" height="20" uuid="2608cc13-f43d-45c1-97f1-21d883bfbb95"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[___________________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="23" y="17" width="100" height="25" uuid="5fbd9c37-9a51-4982-bbaa-623c9a4c5963"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{creator} == "null" ? " " : $F{creator}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="65" y="40" width="333" height="20" uuid="2608cc13-f43d-45c1-97f1-21d883bfbb95"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[ผู้จัดทำ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="20" width="333" height="25" uuid="2608cc13-f43d-45c1-97f1-21d883bfbb95"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[______________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="40" width="333" height="20" uuid="2608cc13-f43d-45c1-97f1-21d883bfbb95"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ผู้ตรวจสอบ]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
